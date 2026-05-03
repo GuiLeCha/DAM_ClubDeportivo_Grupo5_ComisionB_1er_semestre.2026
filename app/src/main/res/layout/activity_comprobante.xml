@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="26dp">
+
+        <TextView
+            android:id="@+id/txtTituloComprobante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comprobante"
+            android:textColor="@color/blanco"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <LinearLayout
+            android:id="@+id/cardComprobante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/blanco"
+            android:padding="20dp"
+            android:layout_marginTop="32dp">
+
+            <ImageView
+                android:id="@+id/imgLogoComprobante"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:src="@drawable/logo_club_deportivo"
+                android:contentDescription="Logo del club"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/txtClubComprobante"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Club Deportivo"
+                android:textColor="@color/azul_principal"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/txtComprobanteNumero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comprobante N° 000248"
+                android:textColor="@color/gris_texto"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_marginTop="4dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gris_borde"
+                android:layout_marginTop="18dp" />
+
+            <TextView
+                android:id="@+id/txtClienteComprobante"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cliente: Julia Piassentini"
+                android:textColor="@color/negro"
+                android:textSize="15sp"
+                android:layout_marginTop="18dp" />
+
+            <TextView
+                android:id="@+id/txtDetalleComprobante"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Socio N° 23721"
+                android:textColor="@color/negro"
+                android:textSize="15sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/txtConceptoComprobante"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Concepto: Cuota mensual"
+                android:textColor="@color/negro"
+                android:textSize="15sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/txtFechaComprobante"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fecha: 23/03/26"
+                android:textColor="@color/negro"
+                android:textSize="15sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/txtMedioComprobante"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Medio de pago: Efectivo"
+                android:textColor="@color/negro"
+                android:textSize="15sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/txtTotalComprobante"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TOTAL: $ 12.000"
+                android:textColor="@color/azul_principal"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="end"
+                android:layout_marginTop="24dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDescargarComprobante"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Descargar"
+            android:textColor="@color/azul_principal"
+            android:textStyle="bold"
+            android:backgroundTint="@color/blanco"
+            android:layout_marginTop="26dp" />
+
+        <Button
+            android:id="@+id/btnVolverMenuComprobante"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Volver al menú"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:backgroundTint="@color/azul_principal"
+            android:layout_marginTop="14dp" />
+
+    </LinearLayout>
+
+</ScrollView>

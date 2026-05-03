@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="26dp">
+
+        <TextView
+            android:id="@+id/txtTituloCarnet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Carnet de socio"
+            android:textColor="@color/blanco"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <LinearLayout
+            android:id="@+id/cardCarnetSocio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/blanco"
+            android:padding="20dp"
+            android:layout_marginTop="32dp">
+
+            <LinearLayout
+                android:id="@+id/headerCarnet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/imgLogoCarnet"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/logo_club_deportivo"
+                    android:contentDescription="Logo del club" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:id="@+id/txtNombreClubCarnet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Club Deportivo"
+                        android:textColor="@color/azul_principal"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtSubtituloCarnet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Credencial de socio"
+                        android:textColor="@color/gris_texto"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contenedorDatosCarnet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="26dp">
+
+                <TextView
+                    android:id="@+id/txtInicialesCarnet"
+                    android:layout_width="82dp"
+                    android:layout_height="82dp"
+                    android:text="JP"
+                    android:textColor="@color/azul_principal"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@color/azul_claro" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="14dp">
+
+                    <TextView
+                        android:id="@+id/txtNombreSocioCarnet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Julia Piassentini"
+                        android:textColor="@color/negro"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtNumeroSocioCarnet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N° de socio: 23721"
+                        android:textColor="@color/gris_texto"
+                        android:textSize="13sp"
+                        android:layout_marginTop="6dp" />
+
+                    <TextView
+                        android:id="@+id/txtEstadoCarnet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estado: Socia"
+                        android:textColor="@color/verde_ok"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="6dp" />
+
+                    <TextView
+                        android:id="@+id/txtVencimientoCarnet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vencimiento cuota: 15/03/26"
+                        android:textColor="@color/gris_texto"
+                        android:textSize="13sp"
+                        android:layout_marginTop="6dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contenedorQrCarnet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="28dp">
+
+                <TextView
+                    android:id="@+id/txtQrSimulado"
+                    android:layout_width="118dp"
+                    android:layout_height="118dp"
+                    android:text="QR"
+                    android:textColor="@color/negro"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@color/fondo_claro" />
+
+                <TextView
+                    android:id="@+id/txtCodigoCarnet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Código: SOC-23721"
+                    android:textColor="@color/gris_texto"
+                    android:textSize="12sp"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnImprimirCarnet"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Imprimir"
+            android:textColor="@color/azul_principal"
+            android:textStyle="bold"
+            android:backgroundTint="@color/blanco"
+            android:layout_marginTop="28dp" />
+
+        <Button
+            android:id="@+id/btnCompartirCarnet"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Compartir"
+            android:textColor="@color/azul_principal"
+            android:textStyle="bold"
+            android:backgroundTint="@color/blanco"
+            android:layout_marginTop="14dp" />
+
+        <Button
+            android:id="@+id/btnVolverPerfilSocio"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Volver al perfil"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:backgroundTint="@color/azul_principal"
+            android:layout_marginTop="22dp" />
+
+    </LinearLayout>
+
+</ScrollView>

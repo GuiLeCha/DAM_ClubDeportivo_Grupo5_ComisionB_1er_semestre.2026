@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ClubDeportivo_Grupo5_ComisionB">
+        <activity
+            android:name=".UsuariosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VencimientosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComprobanteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PagoExitosoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarPagoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CobrosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CarnetSocioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PerfilVisitanteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PerfilSocioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListaVisitantesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListaSociosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroExitosoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ClubDeportivo_Grupo5_ComisionB" />
+        <activity
+            android:name=".RegistrarVisitanteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarSocioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

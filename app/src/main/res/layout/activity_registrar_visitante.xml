@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:id="@+id/headerRegistrarVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp">
+
+            <ImageView
+                android:id="@+id/imgIconoRegistrarVisitante"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:src="@android:drawable/ic_menu_add"
+                android:contentDescription="Registrar visitante" />
+
+            <TextView
+                android:id="@+id/txtTituloRegistrarVisitante"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Registrar visitante"
+                android:textColor="@color/blanco"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/txtMenuSimuladoVisitante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="☰"
+                android:textColor="@color/blanco"
+                android:textSize="28sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtDatosPersonalesVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Datos Personales"
+            android:textColor="@color/blanco"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="34dp" />
+
+        <EditText
+            android:id="@+id/edtNombreVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Nombre"
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edtApellidoVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Apellido"
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/edtDniVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="DNI"
+            android:inputType="number"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/txtDatosContactoVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Datos de contacto"
+            android:textColor="@color/blanco"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="28dp" />
+
+        <EditText
+            android:id="@+id/edtTelefonoVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Teléfono"
+            android:inputType="phone"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edtEmailVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/edtActividadVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Actividad"
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnAgregarVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Agregar Visitante"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:backgroundTint="@color/azul_principal"
+            android:layout_marginTop="48dp" />
+
+    </LinearLayout>
+
+</ScrollView>

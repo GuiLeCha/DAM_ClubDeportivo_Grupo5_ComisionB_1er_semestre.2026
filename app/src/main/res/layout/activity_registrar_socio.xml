@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:id="@+id/headerRegistrarSocio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp">
+
+            <ImageView
+                android:id="@+id/imgIconoRegistrarSocio"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:src="@android:drawable/ic_menu_add"
+                android:contentDescription="Registrar socio" />
+
+            <TextView
+                android:id="@+id/txtTituloRegistrarSocio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Registrar socio"
+                android:textColor="@color/blanco"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/txtMenuSimuladoSocio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="☰"
+                android:textColor="@color/blanco"
+                android:textSize="28sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtDatosPersonalesSocio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Datos Personales"
+            android:textColor="@color/blanco"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="34dp" />
+
+        <EditText
+            android:id="@+id/edtNombreSocio"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Nombre"
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edtApellidoSocio"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Apellido"
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/edtDniSocio"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="DNI"
+            android:inputType="number"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/edtFechaNacimientoSocio"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Fecha de nacimiento"
+            android:inputType="date"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/txtDatosContactoSocio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Datos de contacto"
+            android:textColor="@color/blanco"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="28dp" />
+
+        <EditText
+            android:id="@+id/edtTelefonoSocio"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Teléfono"
+            android:inputType="phone"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edtEmailSocio"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/edtDireccionSocio"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Dirección"
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <CheckBox
+            android:id="@+id/chkAptoFisicoSocio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entregó apto físico"
+            android:textColor="@color/blanco"
+            android:textSize="13sp"
+            android:layout_marginTop="14dp" />
+
+        <Button
+            android:id="@+id/btnAgregarSocio"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Agregar Socio"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:backgroundTint="@color/azul_principal"
+            android:layout_marginTop="42dp" />
+
+    </LinearLayout>
+
+</ScrollView>

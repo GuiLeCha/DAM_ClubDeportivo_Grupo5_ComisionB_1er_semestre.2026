@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <LinearLayout
+            android:id="@+id/headerCobros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="18dp">
+
+            <ImageView
+                android:id="@+id/imgIconoCobros"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@android:drawable/ic_menu_send"
+                android:contentDescription="Cobros" />
+
+            <TextView
+                android:id="@+id/txtTituloCobros"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cobros"
+                android:textColor="@color/blanco"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
+
+            <TextView
+                android:id="@+id/txtMenuCobros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="☰"
+                android:textColor="@color/blanco"
+                android:textSize="26sp" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edtBuscarCobros"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:hint="Buscar cliente..."
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:drawablePadding="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="18dp" />
+
+        <TextView
+            android:id="@+id/txtSubtituloCobros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccione una persona para registrar el pago"
+            android:textColor="@color/gris_medio"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:id="@+id/cardCobroGuillermo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/blanco"
+            android:padding="14dp"
+            android:layout_marginTop="18dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guillermo Chacon"
+                android:textColor="@color/negro"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Socio N° 23011"
+                android:textColor="@color/gris_texto"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cuota mensual - Monto: $ 12.000"
+                android:textColor="@color/gris_texto"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <Button
+                android:id="@+id/btnCobrarGuillermo"
+                android:layout_width="120dp"
+                android:layout_height="38dp"
+                android:text="Cobrar"
+                android:textColor="@color/blanco"
+                android:textSize="12sp"
+                android:backgroundTint="@color/azul_principal"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardCobroJulia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/blanco"
+            android:padding="14dp"
+            android:layout_marginTop="18dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Julia Piassentini"
+                android:textColor="@color/negro"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Socio N° 23721"
+                android:textColor="@color/gris_texto"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cuota vencida - Monto: $ 12.000"
+                android:textColor="@color/rojo_alerta"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <Button
+                android:id="@+id/btnCobrarJulia"
+                android:layout_width="120dp"
+                android:layout_height="38dp"
+                android:text="Cobrar"
+                android:textColor="@color/blanco"
+                android:textSize="12sp"
+                android:backgroundTint="@color/azul_principal"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardCobroFernando"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/blanco"
+            android:padding="14dp"
+            android:layout_marginTop="18dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fernando Baca"
+                android:textColor="@color/negro"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Visitante"
+                android:textColor="@color/gris_texto"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Actividad diaria - Monto: $ 3.500"
+                android:textColor="@color/gris_texto"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <Button
+                android:id="@+id/btnCobrarFernando"
+                android:layout_width="120dp"
+                android:layout_height="38dp"
+                android:text="Cobrar"
+                android:textColor="@color/blanco"
+                android:textSize="12sp"
+                android:backgroundTint="@color/azul_principal"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_oscuro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <LinearLayout
+            android:id="@+id/headerListaVisitantes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="18dp">
+
+            <ImageView
+                android:id="@+id/imgIconoListaVisitantes"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                android:contentDescription="Visitantes" />
+
+            <TextView
+                android:id="@+id/txtTituloListaVisitantes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Visitantes"
+                android:textColor="@color/blanco"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
+
+            <TextView
+                android:id="@+id/txtMenuListaVisitantes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="☰"
+                android:textColor="@color/blanco"
+                android:textSize="26sp" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edtBuscarVisitantes"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Buscar cliente..."
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/gris_medio"
+            android:background="@color/blanco"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:drawablePadding="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_marginTop="18dp" />
+
+        <LinearLayout
+            android:id="@+id/cardFernando"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/blanco"
+            android:padding="14dp"
+            android:layout_marginTop="18dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="FB"
+                    android:textColor="@color/azul_principal"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:background="@color/azul_claro" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fernando Baca"
+                    android:textColor="@color/negro"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Actividad: Musculación"
+                android:textColor="@color/negro"
+                android:textSize="13sp"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apto: Sí   Fecha: 23/03/26"
+                android:textColor="@color/negro"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <Button
+                android:id="@+id/btnPerfilFernando"
+                android:layout_width="120dp"
+                android:layout_height="38dp"
+                android:text="Ver Perfil"
+                android:textColor="@color/blanco"
+                android:textSize="12sp"
+                android:backgroundTint="@color/azul_principal"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardEricVisitante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/blanco"
+            android:padding="14dp"
+            android:layout_marginTop="18dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="EB"
+                    android:textColor="@color/azul_principal"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:background="@color/azul_claro" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Eric Bermudez"
+                    android:textColor="@color/negro"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Actividad: Natación"
+                android:textColor="@color/negro"
+                android:textSize="13sp"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apto: Sí   Fecha: 23/03/26"
+                android:textColor="@color/negro"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <Button
+                android:id="@+id/btnPerfilEricVisitante"
+                android:layout_width="120dp"
+                android:layout_height="38dp"
+                android:text="Ver Perfil"
+                android:textColor="@color/blanco"
+                android:textSize="12sp"
+                android:backgroundTint="@color/azul_principal"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

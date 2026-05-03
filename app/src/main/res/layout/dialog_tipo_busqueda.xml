@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialogTipoBusqueda"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/blanco"
+    android:padding="22dp">
+
+    <TextView
+        android:id="@+id/txtCerrarBusquedaDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:textColor="@color/gris_medio"
+        android:textSize="16sp"
+        android:gravity="end" />
+
+    <TextView
+        android:id="@+id/txtPreguntaBusquedaDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿QUÉ TIPO DE CLIENTE QUERÉS BUSCAR?"
+        android:textColor="@color/gris_texto"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="22dp" />
+
+    <LinearLayout
+        android:id="@+id/contenedorCardsBusquedaDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="28dp">
+
+        <LinearLayout
+            android:id="@+id/cardSocioBusqueda"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/fondo_claro"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/imgSocioBusqueda"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                android:contentDescription="Socio" />
+
+            <TextView
+                android:id="@+id/txtSocioBusqueda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SOCIO"
+                android:textColor="@color/azul_principal"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardVisitanteBusqueda"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/fondo_claro"
+            android:padding="10dp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/imgVisitanteBusqueda"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@android:drawable/ic_menu_search"
+                android:contentDescription="Visitante" />
+
+            <TextView
+                android:id="@+id/txtVisitanteBusqueda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VISITANTE"
+                android:textColor="@color/azul_principal"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnContinuarBusquedaDialog"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="CONTINUAR"
+        android:textColor="@color/blanco"
+        android:textStyle="bold"
+        android:backgroundTint="@color/azul_principal"
+        android:layout_marginTop="34dp" />
+
+</LinearLayout>

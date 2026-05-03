@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="30dp"
+    android:background="@color/fondo_oscuro">
+
+    <LinearLayout
+        android:id="@+id/cardRegistroExitoso"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/blanco"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/txtIconoRegistroExitoso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✓"
+            android:textColor="@color/negro"
+            android:textSize="86sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtRegistroExitoso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registro Exitoso"
+            android:textColor="@color/gris_texto"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnVolverMenuRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:text="Volver al menú"
+        android:textColor="@color/blanco"
+        android:textStyle="bold"
+        android:backgroundTint="@color/azul_principal"
+        android:layout_marginTop="34dp" />
+
+</LinearLayout>
