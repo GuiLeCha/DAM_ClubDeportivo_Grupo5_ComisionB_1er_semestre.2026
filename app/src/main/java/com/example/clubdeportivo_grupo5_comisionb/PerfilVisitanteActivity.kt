@@ -1,5 +1,6 @@
 package com.example.clubdeportivo_grupo5_comisionb
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -10,15 +11,21 @@ class PerfilVisitanteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil_visitante)
 
+        val btnVolverPerfilVisitante: Button = findViewById(R.id.btnVolverPerfilVisitante)
         val btnCobrarVisitante: Button = findViewById(R.id.btnCobrarVisitante)
         val btnEditarVisitante: Button = findViewById(R.id.btnEditarVisitante)
 
+        btnVolverPerfilVisitante.setOnClickListener {
+            finish()
+        }
+
         btnCobrarVisitante.setOnClickListener {
-            Toast.makeText(this, "Cobro disponible en el módulo de cobros", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, RegistrarPagoActivity::class.java)
+            startActivity(intent)
         }
 
         btnEditarVisitante.setOnClickListener {
-            Toast.makeText(this, "Edición prevista para próxima etapa", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Edición de visitante disponible en futuras versiones", Toast.LENGTH_SHORT).show()
         }
     }
 }

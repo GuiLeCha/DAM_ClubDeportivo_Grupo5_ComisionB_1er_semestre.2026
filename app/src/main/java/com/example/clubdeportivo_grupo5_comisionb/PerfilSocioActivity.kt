@@ -11,9 +11,14 @@ class PerfilSocioActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil_socio)
 
+        val btnVolverPerfilSocioSuperior: Button = findViewById(R.id.btnVolverPerfilSocioSuperior)
         val btnCobrarSocio: Button = findViewById(R.id.btnCobrarSocio)
         val btnEditarSocio: Button = findViewById(R.id.btnEditarSocio)
         val btnEmitirCarnet: Button = findViewById(R.id.btnEmitirCarnet)
+
+        btnVolverPerfilSocioSuperior.setOnClickListener {
+            finish()
+        }
 
         btnCobrarSocio.setOnClickListener {
             val intent = Intent(this, RegistrarPagoActivity::class.java)
@@ -21,7 +26,7 @@ class PerfilSocioActivity : AppCompatActivity() {
         }
 
         btnEditarSocio.setOnClickListener {
-            Toast.makeText(this, "Edición prevista para próxima etapa", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Edición de socio disponible en futuras versiones", Toast.LENGTH_SHORT).show()
         }
 
         btnEmitirCarnet.setOnClickListener {

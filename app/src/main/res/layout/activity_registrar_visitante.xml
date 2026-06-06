@@ -11,6 +11,15 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <Button
+            android:id="@+id/btnVolverRegistrarVisitante"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="← Volver"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:backgroundTint="@color/azul_principal" />
+
         <LinearLayout
             android:id="@+id/headerRegistrarVisitante"
             android:layout_width="match_parent"

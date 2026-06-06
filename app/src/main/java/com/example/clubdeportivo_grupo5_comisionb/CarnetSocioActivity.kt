@@ -1,6 +1,5 @@
 package com.example.clubdeportivo_grupo5_comisionb
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -24,8 +23,7 @@ class CarnetSocioActivity : AppCompatActivity() {
         }
 
         btnVolverPerfilSocio.setOnClickListener {
-            val intent = Intent(this, PerfilSocioActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 }

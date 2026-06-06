@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MenuActivity : AppCompatActivity() {
@@ -51,6 +52,7 @@ class MenuActivity : AppCompatActivity() {
         val txtCerrarRegistro: TextView = vista.findViewById(R.id.txtCerrarRegistro)
         val cardSocioRegistro: LinearLayout = vista.findViewById(R.id.cardSocioRegistro)
         val cardVisitanteRegistro: LinearLayout = vista.findViewById(R.id.cardVisitanteRegistro)
+        val btnContinuarRegistroDialog: Button = vista.findViewById(R.id.btnContinuarRegistroDialog)
 
         cardSocioRegistro.setOnClickListener {
             val intent = Intent(this, RegistrarSocioActivity::class.java)
@@ -62,6 +64,10 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, RegistrarVisitanteActivity::class.java)
             startActivity(intent)
             dialog.dismiss()
+        }
+
+        btnContinuarRegistroDialog.setOnClickListener {
+            Toast.makeText(this, "Seleccione Socio o Visitante para continuar", Toast.LENGTH_SHORT).show()
         }
 
         txtCerrarRegistro.setOnClickListener {
@@ -78,6 +84,7 @@ class MenuActivity : AppCompatActivity() {
         val txtCerrarBusquedaDialog: TextView = vista.findViewById(R.id.txtCerrarBusquedaDialog)
         val cardSocioBusqueda: LinearLayout = vista.findViewById(R.id.cardSocioBusqueda)
         val cardVisitanteBusqueda: LinearLayout = vista.findViewById(R.id.cardVisitanteBusqueda)
+        val btnContinuarBusquedaDialog: Button = vista.findViewById(R.id.btnContinuarBusquedaDialog)
 
         cardSocioBusqueda.setOnClickListener {
             val intent = Intent(this, ListaSociosActivity::class.java)
@@ -89,6 +96,10 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, ListaVisitantesActivity::class.java)
             startActivity(intent)
             dialog.dismiss()
+        }
+
+        btnContinuarBusquedaDialog.setOnClickListener {
+            Toast.makeText(this, "Seleccione Socio o Visitante para continuar", Toast.LENGTH_SHORT).show()
         }
 
         txtCerrarBusquedaDialog.setOnClickListener {

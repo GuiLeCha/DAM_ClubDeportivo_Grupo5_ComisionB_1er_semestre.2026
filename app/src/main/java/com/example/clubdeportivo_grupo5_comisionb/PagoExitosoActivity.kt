@@ -20,7 +20,9 @@ class PagoExitosoActivity : AppCompatActivity() {
 
         btnVolverMenuPago.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
+            finish()
         }
     }
 }
