@@ -7,11 +7,22 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import android.database.sqlite.SQLiteDatabase
 
 class MainActivity : AppCompatActivity() {
+
+    // TEMPORAL PARA DESARROLLO:
+    private lateinit var dbHelperPrueba: SQLiteHelper
+    private lateinit var dbAbiertaPrueba: SQLiteDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+    // TEMPORAL PARA DESARROLLO:
+    // Mantiene abierta la base para poder verla en App Inspection.
+        dbHelperPrueba = SQLiteHelper(this)
+        dbAbiertaPrueba = dbHelperPrueba.writableDatabase
 
         val edtUsuario: EditText = findViewById(R.id.edtUsuario)
         val edtClave: EditText = findViewById(R.id.edtClave)

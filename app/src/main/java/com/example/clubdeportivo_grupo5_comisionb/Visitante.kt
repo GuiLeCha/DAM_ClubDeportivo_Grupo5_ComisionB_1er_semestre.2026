@@ -9,7 +9,8 @@ data class Visitante(
     val email: String,
     val actividad: String,
     val aptoFisico: Boolean,
-    val fechaRegistro: String
+    val fechaRegistro: String,
+    val activo: Boolean = true
 ) {
     val nombreCompleto: String
         get() = "$nombre $apellido"

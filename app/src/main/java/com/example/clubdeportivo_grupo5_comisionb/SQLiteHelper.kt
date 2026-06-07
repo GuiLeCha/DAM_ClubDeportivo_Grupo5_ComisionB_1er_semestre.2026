@@ -18,7 +18,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
 
     companion object {
         private const val DATABASE_NAME = "clubdeportivo.db"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
 
         private const val TABLA_SOCIOS = "socios"
         private const val TABLA_VISITANTES = "visitantes"
@@ -39,7 +39,8 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
                 aptoFisico INTEGER NOT NULL,
                 carnetEntregado INTEGER NOT NULL,
                 fechaAlta TEXT NOT NULL,
-                fechaVencimientoCuota TEXT NOT NULL
+                fechaVencimientoCuota TEXT NOT NULL,
+                activo INTEGER NOT NULL DEFAULT 1
             )
         """.trimIndent()
 
@@ -53,7 +54,8 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
                 email TEXT,
                 actividad TEXT NOT NULL,
                 aptoFisico INTEGER NOT NULL,
-                fechaRegistro TEXT NOT NULL
+                fechaRegistro TEXT NOT NULL,
+                activo INTEGER NOT NULL DEFAULT 1
             )
         """.trimIndent()
 
@@ -97,6 +99,47 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
         return formato.format(calendario.time)
     }
 
+    fun obtenerFechaConDiferenciaMeses(meses: Int): String {
+        val formato = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val calendario = Calendar.getInstance()
+        calendario.add(Calendar.MONTH, meses)
+        return formato.format(calendario.time)
+    }
+
+    fun calcularNuevoVencimientoSocio(socioId: Int): String {
+        val socio = obtenerSocioPorId(socioId)
+        val fechaHoy = obtenerFechaHoy()
+
+        if (socio == null) {
+            return obtenerFechaConDiferenciaMeses(1)
+        }
+
+        val fechaVencimientoActual = socio.fechaVencimientoCuota
+
+        return if (fechaVencimientoActual >= fechaHoy) {
+            sumarMesesAFecha(fechaVencimientoActual, 1)
+        } else {
+            obtenerFechaConDiferenciaMeses(1)
+        }
+    }
+
+    private fun sumarMesesAFecha(fecha: String, meses: Int): String {
+        return try {
+            val formato = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val calendario = Calendar.getInstance()
+            val fechaParseada = formato.parse(fecha)
+
+            if (fechaParseada != null) {
+                calendario.time = fechaParseada
+            }
+
+            calendario.add(Calendar.MONTH, meses)
+            formato.format(calendario.time)
+        } catch (e: Exception) {
+            obtenerFechaConDiferenciaMeses(meses)
+        }
+    }
+
     private fun insertarDatosIniciales(db: SQLiteDatabase) {
         val idGuillermo = insertarSocioEnDb(
             db,
@@ -111,7 +154,8 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
                 aptoFisico = true,
                 carnetEntregado = true,
                 fechaAlta = obtenerFechaConDiferenciaDias(-30),
-                fechaVencimientoCuota = obtenerFechaConDiferenciaDias(10)
+                fechaVencimientoCuota = obtenerFechaConDiferenciaDias(10),
+                activo = true
             )
         ).toInt()
 
@@ -128,7 +172,8 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
                 aptoFisico = true,
                 carnetEntregado = true,
                 fechaAlta = obtenerFechaConDiferenciaDias(-30),
-                fechaVencimientoCuota = obtenerFechaHoy()
+                fechaVencimientoCuota = obtenerFechaHoy(),
+                activo = true
             )
         ).toInt()
 
@@ -145,7 +190,8 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
                 aptoFisico = true,
                 carnetEntregado = false,
                 fechaAlta = obtenerFechaConDiferenciaDias(-30),
-                fechaVencimientoCuota = obtenerFechaHoy()
+                fechaVencimientoCuota = obtenerFechaHoy(),
+                activo = true
             )
         ).toInt()
 
@@ -159,7 +205,8 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
                 email = "fernando.baca@email.com",
                 actividad = "Musculación",
                 aptoFisico = true,
-                fechaRegistro = obtenerFechaHoy()
+                fechaRegistro = obtenerFechaHoy(),
+                activo = true
             )
         ).toInt()
 
@@ -173,7 +220,8 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
                 email = "eric.bermudez@email.com",
                 actividad = "Pileta libre",
                 aptoFisico = true,
-                fechaRegistro = obtenerFechaHoy()
+                fechaRegistro = obtenerFechaHoy(),
+                activo = true
             )
         )
 
@@ -258,6 +306,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
             put("carnetEntregado", if (socio.carnetEntregado) 1 else 0)
             put("fechaAlta", socio.fechaAlta)
             put("fechaVencimientoCuota", socio.fechaVencimientoCuota)
+            put("activo", if (socio.activo) 1 else 0)
         }
 
         return db.insert(TABLA_SOCIOS, null, valores)
@@ -280,6 +329,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
             put("actividad", visitante.actividad)
             put("aptoFisico", if (visitante.aptoFisico) 1 else 0)
             put("fechaRegistro", visitante.fechaRegistro)
+            put("activo", if (visitante.activo) 1 else 0)
         }
 
         return db.insert(TABLA_VISITANTES, null, valores)
@@ -348,8 +398,39 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
         val listaSocios = mutableListOf<Socio>()
         val db = readableDatabase
         val cursor = db.rawQuery(
-            "SELECT * FROM $TABLA_SOCIOS ORDER BY apellido, nombre",
+            "SELECT * FROM $TABLA_SOCIOS WHERE activo = 1 ORDER BY apellido, nombre",
             null
+        )
+
+        if (cursor.moveToFirst()) {
+            do {
+                listaSocios.add(cursorASocio(cursor))
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+        return listaSocios
+    }
+
+    fun buscarSocios(textoBusqueda: String): MutableList<Socio> {
+        val listaSocios = mutableListOf<Socio>()
+        val db = readableDatabase
+        val texto = "%${textoBusqueda.trim()}%"
+
+        val cursor = db.rawQuery(
+            """
+            SELECT *
+            FROM $TABLA_SOCIOS
+            WHERE activo = 1
+              AND (
+                    nombre LIKE ?
+                 OR apellido LIKE ?
+                 OR dni LIKE ?
+              )
+            ORDER BY apellido, nombre
+            """.trimIndent(),
+            arrayOf(texto, texto, texto)
         )
 
         if (cursor.moveToFirst()) {
@@ -367,8 +448,40 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
         val listaVisitantes = mutableListOf<Visitante>()
         val db = readableDatabase
         val cursor = db.rawQuery(
-            "SELECT * FROM $TABLA_VISITANTES ORDER BY apellido, nombre",
+            "SELECT * FROM $TABLA_VISITANTES WHERE activo = 1 ORDER BY apellido, nombre",
             null
+        )
+
+        if (cursor.moveToFirst()) {
+            do {
+                listaVisitantes.add(cursorAVisitante(cursor))
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+        return listaVisitantes
+    }
+
+    fun buscarVisitantes(textoBusqueda: String): MutableList<Visitante> {
+        val listaVisitantes = mutableListOf<Visitante>()
+        val db = readableDatabase
+        val texto = "%${textoBusqueda.trim()}%"
+
+        val cursor = db.rawQuery(
+            """
+            SELECT *
+            FROM $TABLA_VISITANTES
+            WHERE activo = 1
+              AND (
+                    nombre LIKE ?
+                 OR apellido LIKE ?
+                 OR dni LIKE ?
+                 OR actividad LIKE ?
+              )
+            ORDER BY apellido, nombre
+            """.trimIndent(),
+            arrayOf(texto, texto, texto, texto)
         )
 
         if (cursor.moveToFirst()) {
@@ -500,11 +613,47 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
         return resultado
     }
 
+    fun darDeBajaSocio(id: Int): Int {
+        val db = writableDatabase
+
+        val valores = ContentValues().apply {
+            put("activo", 0)
+        }
+
+        val resultado = db.update(
+            TABLA_SOCIOS,
+            valores,
+            "id = ?",
+            arrayOf(id.toString())
+        )
+
+        db.close()
+        return resultado
+    }
+
+    fun darDeBajaVisitante(id: Int): Int {
+        val db = writableDatabase
+
+        val valores = ContentValues().apply {
+            put("activo", 0)
+        }
+
+        val resultado = db.update(
+            TABLA_VISITANTES,
+            valores,
+            "id = ?",
+            arrayOf(id.toString())
+        )
+
+        db.close()
+        return resultado
+    }
+
     fun obtenerVencimientosDelDia(fecha: String = obtenerFechaHoy()): MutableList<Socio> {
         val listaSocios = mutableListOf<Socio>()
         val db = readableDatabase
         val cursor = db.rawQuery(
-            "SELECT * FROM $TABLA_SOCIOS WHERE fechaVencimientoCuota = ? ORDER BY apellido, nombre",
+            "SELECT * FROM $TABLA_SOCIOS WHERE activo = 1 AND fechaVencimientoCuota = ? ORDER BY apellido, nombre",
             arrayOf(fecha)
         )
 
@@ -569,7 +718,8 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
             aptoFisico = cursor.getInt(cursor.getColumnIndexOrThrow("aptoFisico")) == 1,
             carnetEntregado = cursor.getInt(cursor.getColumnIndexOrThrow("carnetEntregado")) == 1,
             fechaAlta = cursor.getString(cursor.getColumnIndexOrThrow("fechaAlta")),
-            fechaVencimientoCuota = cursor.getString(cursor.getColumnIndexOrThrow("fechaVencimientoCuota"))
+            fechaVencimientoCuota = cursor.getString(cursor.getColumnIndexOrThrow("fechaVencimientoCuota")),
+            activo = cursor.getInt(cursor.getColumnIndexOrThrow("activo")) == 1
         )
     }
 
@@ -583,7 +733,8 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(
             email = cursor.getString(cursor.getColumnIndexOrThrow("email")),
             actividad = cursor.getString(cursor.getColumnIndexOrThrow("actividad")),
             aptoFisico = cursor.getInt(cursor.getColumnIndexOrThrow("aptoFisico")) == 1,
-            fechaRegistro = cursor.getString(cursor.getColumnIndexOrThrow("fechaRegistro"))
+            fechaRegistro = cursor.getString(cursor.getColumnIndexOrThrow("fechaRegistro")),
+            activo = cursor.getInt(cursor.getColumnIndexOrThrow("activo")) == 1
         )
     }
 

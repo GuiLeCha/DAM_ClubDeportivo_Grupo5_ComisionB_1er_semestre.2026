@@ -14,15 +14,29 @@ class PagoExitosoActivity : AppCompatActivity() {
         val btnVolverMenuPago: Button = findViewById(R.id.btnVolverMenuPago)
 
         btnVerComprobante.setOnClickListener {
-            val intent = Intent(this, ComprobanteActivity::class.java)
-            startActivity(intent)
+            val intentComprobante = Intent(this, ComprobanteActivity::class.java)
+            copiarExtras(intentComprobante)
+            startActivity(intentComprobante)
         }
 
         btnVolverMenuPago.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            startActivity(intent)
+            val intentMenu = Intent(this, MenuActivity::class.java)
+            intentMenu.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intentMenu)
             finish()
         }
+    }
+
+    private fun copiarExtras(intentDestino: Intent) {
+        intentDestino.putExtra("pagoId", intent.getIntExtra("pagoId", 0))
+        intentDestino.putExtra("tipoCliente", intent.getStringExtra("tipoCliente") ?: "")
+        intentDestino.putExtra("clienteId", intent.getIntExtra("clienteId", 0))
+        intentDestino.putExtra("nombreCliente", intent.getStringExtra("nombreCliente") ?: "")
+        intentDestino.putExtra("dniCliente", intent.getStringExtra("dniCliente") ?: "")
+        intentDestino.putExtra("concepto", intent.getStringExtra("concepto") ?: "")
+        intentDestino.putExtra("monto", intent.getDoubleExtra("monto", 0.0))
+        intentDestino.putExtra("medioPago", intent.getStringExtra("medioPago") ?: "")
+        intentDestino.putExtra("fechaPago", intent.getStringExtra("fechaPago") ?: "")
+        intentDestino.putExtra("fechaVencimiento", intent.getStringExtra("fechaVencimiento") ?: "")
     }
 }

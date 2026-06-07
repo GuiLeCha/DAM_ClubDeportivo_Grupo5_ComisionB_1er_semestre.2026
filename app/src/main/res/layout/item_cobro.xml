@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardItemCobro"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/blanco"
+    android:padding="14dp"
+    android:layout_marginBottom="18dp">
+
+    <TextView
+        android:id="@+id/txtNombreItemCobro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="@color/negro"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtTipoItemCobro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tipo"
+        android:textColor="@color/gris_texto"
+        android:textSize="13sp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/txtDetalleItemCobro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detalle"
+        android:textColor="@color/gris_texto"
+        android:textSize="13sp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/txtConceptoItemCobro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Concepto"
+        android:textColor="@color/gris_texto"
+        android:textSize="13sp"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:id="@+id/btnCobrarItemCobro"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:text="Cobrar"
+        android:textColor="@color/blanco"
+        android:textSize="12sp"
+        android:backgroundTint="@color/azul_principal"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>

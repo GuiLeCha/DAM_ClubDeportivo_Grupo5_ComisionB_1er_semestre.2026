@@ -13,12 +13,16 @@ class RegistrarVisitanteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar_visitante)
 
+        val dbHelper = SQLiteHelper(this)
+
         val btnVolverRegistrarVisitante: Button = findViewById(R.id.btnVolverRegistrarVisitante)
         val txtMenuSimuladoVisitante: TextView = findViewById(R.id.txtMenuSimuladoVisitante)
 
         val edtNombreVisitante: EditText = findViewById(R.id.edtNombreVisitante)
         val edtApellidoVisitante: EditText = findViewById(R.id.edtApellidoVisitante)
         val edtDniVisitante: EditText = findViewById(R.id.edtDniVisitante)
+        val edtTelefonoVisitante: EditText = findViewById(R.id.edtTelefonoVisitante)
+        val edtEmailVisitante: EditText = findViewById(R.id.edtEmailVisitante)
         val edtActividadVisitante: EditText = findViewById(R.id.edtActividadVisitante)
 
         val btnAgregarVisitante: Button = findViewById(R.id.btnAgregarVisitante)
@@ -35,6 +39,8 @@ class RegistrarVisitanteActivity : AppCompatActivity() {
             val nombre = edtNombreVisitante.text.toString().trim()
             val apellido = edtApellidoVisitante.text.toString().trim()
             val dni = edtDniVisitante.text.toString().trim()
+            val telefono = edtTelefonoVisitante.text.toString().trim()
+            val email = edtEmailVisitante.text.toString().trim()
             val actividad = edtActividadVisitante.text.toString().trim()
 
             if (nombre.isEmpty()) {
@@ -61,8 +67,42 @@ class RegistrarVisitanteActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val intent = Intent(this, RegistroExitosoActivity::class.java)
-            startActivity(intent)
+            if (dbHelper.existeDniSocio(dni) || dbHelper.existeDniVisitante(dni)) {
+                edtDniVisitante.error = "El DNI ya se encuentra registrado"
+                edtDniVisitante.requestFocus()
+                Toast.makeText(this, "Ya existe una persona registrada con ese DNI", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val visitante = Visitante(
+                nombre = nombre,
+                apellido = apellido,
+                dni = dni,
+                telefono = telefono,
+                email = email,
+                actividad = actividad,
+                aptoFisico = true,
+                fechaRegistro = dbHelper.obtenerFechaHoy()
+            )
+
+            val resultado = dbHelper.insertarVisitante(visitante)
+
+            if (resultado > 0) {
+                Toast.makeText(this, "Visitante registrado correctamente", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, RegistrarPagoActivity::class.java)
+                intent.putExtra("tipoCliente", "VISITANTE")
+                intent.putExtra("clienteId", resultado.toInt())
+                intent.putExtra("nombreCliente", "$nombre $apellido")
+                intent.putExtra("dniCliente", dni)
+                intent.putExtra("concepto", "Actividad diaria")
+                intent.putExtra("monto", 3500.0)
+                intent.putExtra("actividad", actividad)
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "No se pudo registrar el visitante", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

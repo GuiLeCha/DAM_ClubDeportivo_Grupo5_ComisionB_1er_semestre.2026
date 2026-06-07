@@ -46,9 +46,10 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/txtInicialesPerfilVisitante"
                     android:layout_width="54dp"
                     android:layout_height="54dp"
-                    android:text="FB"
+                    android:text="VC"
                     android:textColor="@color/azul_principal"
                     android:textSize="18sp"
                     android:gravity="center"
@@ -62,14 +63,16 @@
                     android:layout_marginStart="12dp">
 
                     <TextView
+                        android:id="@+id/txtNombrePerfilVisitante"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fernando Baca"
+                        android:text="Nombre del visitante"
                         android:textColor="@color/negro"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/txtTipoPerfilVisitante"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Visitante"
@@ -82,33 +85,46 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/txtActividadPerfilVisitante"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Actividad: Musculación"
+                android:text="Actividad"
                 android:textColor="@color/negro"
                 android:textSize="13sp"
                 android:layout_marginTop="18dp" />
 
             <TextView
+                android:id="@+id/txtAptoPerfilVisitante"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Apto físico: Sí   Fecha: 23/03/26"
+                android:text="Apto físico"
                 android:textColor="@color/negro"
                 android:textSize="13sp"
                 android:layout_marginTop="4dp" />
 
             <TextView
+                android:id="@+id/txtDniPerfilVisitante"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="fbaca@borcelleclub.com"
+                android:text="DNI"
                 android:textColor="@color/gris_texto"
                 android:textSize="12sp"
                 android:layout_marginTop="10dp" />
 
             <TextView
+                android:id="@+id/txtEmailPerfilVisitante"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+54 11 2345-6854"
+                android:text="Email"
+                android:textColor="@color/gris_texto"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/txtTelefonoPerfilVisitante"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Teléfono"
                 android:textColor="@color/gris_texto"
                 android:textSize="12sp"
                 android:layout_marginTop="2dp" />

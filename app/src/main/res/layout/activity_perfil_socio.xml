@@ -46,9 +46,10 @@
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/txtInicialesPerfilSocio"
                     android:layout_width="54dp"
                     android:layout_height="54dp"
-                    android:text="JP"
+                    android:text="SC"
                     android:textColor="@color/azul_principal"
                     android:textSize="18sp"
                     android:gravity="center"
@@ -62,17 +63,19 @@
                     android:layout_marginStart="12dp">
 
                     <TextView
+                        android:id="@+id/txtNombrePerfilSocio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Julia Piassentini"
+                        android:text="Nombre del socio"
                         android:textColor="@color/negro"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/txtNumeroPerfilSocio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="N° de socio: 23721"
+                        android:text="N° de socio"
                         android:textColor="@color/negro"
                         android:textSize="13sp"
                         android:layout_marginTop="4dp" />
@@ -82,34 +85,65 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/txtCuotaPerfilSocio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cuota vencida: 15/03/26"
+                android:text="Vencimiento cuota"
                 android:textColor="@color/rojo_alerta"
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:layout_marginTop="18dp" />
 
             <TextView
+                android:id="@+id/txtEstadoPerfilSocio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estado: En mora"
+                android:text="Estado"
                 android:textColor="@color/rojo_alerta"
                 android:textSize="13sp"
                 android:layout_marginTop="4dp" />
 
             <TextView
+                android:id="@+id/txtDniPerfilSocio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="jpiassentini@borcelleclub.com"
+                android:text="DNI"
                 android:textColor="@color/gris_texto"
                 android:textSize="12sp"
                 android:layout_marginTop="10dp" />
 
             <TextView
+                android:id="@+id/txtEmailPerfilSocio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+54 11 2345-6821"
+                android:text="Email"
+                android:textColor="@color/gris_texto"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/txtTelefonoPerfilSocio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Teléfono"
+                android:textColor="@color/gris_texto"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/txtDireccionPerfilSocio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dirección"
+                android:textColor="@color/gris_texto"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/txtAptoPerfilSocio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apto físico"
                 android:textColor="@color/gris_texto"
                 android:textSize="12sp"
                 android:layout_marginTop="2dp" />

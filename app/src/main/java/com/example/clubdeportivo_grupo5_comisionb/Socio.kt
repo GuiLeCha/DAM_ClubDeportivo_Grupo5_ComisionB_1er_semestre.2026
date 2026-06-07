@@ -12,7 +12,8 @@ data class Socio(
     val aptoFisico: Boolean,
     val carnetEntregado: Boolean,
     val fechaAlta: String,
-    val fechaVencimientoCuota: String
+    val fechaVencimientoCuota: String,
+    val activo: Boolean = true
 ) {
     val nombreCompleto: String
         get() = "$nombre $apellido"

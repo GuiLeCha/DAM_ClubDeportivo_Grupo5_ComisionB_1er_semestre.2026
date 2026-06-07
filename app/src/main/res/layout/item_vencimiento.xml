@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardItemVencimiento"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/blanco"
+    android:padding="14dp"
+    android:layout_marginBottom="18dp">
+
+    <TextView
+        android:id="@+id/txtNombreItemVencimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre del socio"
+        android:textColor="@color/negro"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtNumeroItemVencimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Socio y DNI"
+        android:textColor="@color/gris_texto"
+        android:textSize="13sp"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/txtCuotaItemVencimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vencimiento cuota"
+        android:textColor="@color/rojo_alerta"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtEstadoItemVencimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estado"
+        android:textColor="@color/rojo_alerta"
+        android:textSize="13sp"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/txtContactoItemVencimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contacto"
+        android:textColor="@color/gris_texto"
+        android:textSize="12sp"
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        android:id="@+id/filaBotonesItemVencimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="12dp">
+
+        <Button
+            android:id="@+id/btnNotificarItemVencimiento"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="Notificar"
+            android:textColor="@color/blanco"
+            android:textSize="12sp"
+            android:backgroundTint="@color/azul_claro"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnCobrarItemVencimiento"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="Cobrar"
+            android:textColor="@color/blanco"
+            android:textSize="12sp"
+            android:backgroundTint="@color/azul_principal" />
+
+    </LinearLayout>
+
+</LinearLayout>
