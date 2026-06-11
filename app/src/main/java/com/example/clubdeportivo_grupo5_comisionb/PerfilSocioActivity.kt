@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 class PerfilSocioActivity : AppCompatActivity() {
 
     private lateinit var dbHelper: SQLiteHelper
+    private lateinit var btnEmitirCarnet: Button
+
     private var socioSeleccionado: Socio? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +23,7 @@ class PerfilSocioActivity : AppCompatActivity() {
         val btnVolverPerfilSocioSuperior: Button = findViewById(R.id.btnVolverPerfilSocioSuperior)
         val btnCobrarSocio: Button = findViewById(R.id.btnCobrarSocio)
         val btnEditarSocio: Button = findViewById(R.id.btnEditarSocio)
-        val btnEmitirCarnet: Button = findViewById(R.id.btnEmitirCarnet)
+        btnEmitirCarnet = findViewById(R.id.btnEmitirCarnet)
 
         btnVolverPerfilSocioSuperior.setOnClickListener {
             finish()
@@ -55,11 +57,7 @@ class PerfilSocioActivity : AppCompatActivity() {
         }
 
         btnEmitirCarnet.setOnClickListener {
-            val socio = socioSeleccionado ?: return@setOnClickListener
-
-            val intent = Intent(this, CarnetSocioActivity::class.java)
-            intent.putExtra("socioId", socio.id)
-            startActivity(intent)
+            emitirOVerCarnet()
         }
     }
 
@@ -117,6 +115,49 @@ class PerfilSocioActivity : AppCompatActivity() {
         txtTelefonoPerfilSocio.text = "Teléfono: ${obtenerTextoOAlternativo(socio.telefono, "Sin teléfono")}"
         txtDireccionPerfilSocio.text = "Dirección: ${obtenerTextoOAlternativo(socio.direccion, "Sin dirección")}"
         txtAptoPerfilSocio.text = "Apto físico: ${if (socio.aptoFisico) "Sí" else "No"} - Carnet: ${if (socio.carnetEntregado) "Entregado" else "Pendiente"}"
+
+        btnEmitirCarnet.text = if (socio.carnetEntregado) {
+            "Ver Carnet"
+        } else {
+            "Emitir Carnet"
+        }
+    }
+
+    private fun emitirOVerCarnet() {
+        val socio = socioSeleccionado ?: return
+
+        if (socio.carnetEntregado) {
+            abrirCarnet(socio)
+            return
+        }
+
+        val resultado = dbHelper.actualizarVencimientoSocioPorId(
+            socio.id,
+            socio.fechaVencimientoCuota,
+            true
+        )
+
+        if (resultado > 0) {
+            val socioActualizado = dbHelper.obtenerSocioPorId(socio.id)
+
+            if (socioActualizado != null) {
+                socioSeleccionado = socioActualizado
+                cargarDatosSocio(socioActualizado)
+                Toast.makeText(this, "Carnet emitido correctamente", Toast.LENGTH_SHORT).show()
+                abrirCarnet(socioActualizado)
+            } else {
+                Toast.makeText(this, "Carnet emitido correctamente", Toast.LENGTH_SHORT).show()
+                abrirCarnet(socio)
+            }
+        } else {
+            Toast.makeText(this, "No se pudo emitir el carnet", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun abrirCarnet(socio: Socio) {
+        val intent = Intent(this, CarnetSocioActivity::class.java)
+        intent.putExtra("socioId", socio.id)
+        startActivity(intent)
     }
 
     private fun obtenerEstadoCuota(fechaVencimiento: String): String {

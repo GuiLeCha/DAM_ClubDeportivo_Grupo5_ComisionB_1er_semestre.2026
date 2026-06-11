@@ -16,8 +16,6 @@ class RegistrarVisitanteActivity : AppCompatActivity() {
         val dbHelper = SQLiteHelper(this)
 
         val btnVolverRegistrarVisitante: Button = findViewById(R.id.btnVolverRegistrarVisitante)
-        val txtMenuSimuladoVisitante: TextView = findViewById(R.id.txtMenuSimuladoVisitante)
-
         val edtNombreVisitante: EditText = findViewById(R.id.edtNombreVisitante)
         val edtApellidoVisitante: EditText = findViewById(R.id.edtApellidoVisitante)
         val edtDniVisitante: EditText = findViewById(R.id.edtDniVisitante)
@@ -29,10 +27,6 @@ class RegistrarVisitanteActivity : AppCompatActivity() {
 
         btnVolverRegistrarVisitante.setOnClickListener {
             finish()
-        }
-
-        txtMenuSimuladoVisitante.setOnClickListener {
-            Toast.makeText(this, "Menú de opciones disponible en futuras versiones", Toast.LENGTH_SHORT).show()
         }
 
         btnAgregarVisitante.setOnClickListener {

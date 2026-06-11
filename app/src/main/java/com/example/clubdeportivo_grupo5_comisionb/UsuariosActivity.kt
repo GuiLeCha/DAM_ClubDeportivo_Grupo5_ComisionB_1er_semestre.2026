@@ -12,7 +12,6 @@ class UsuariosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_usuarios)
 
         val btnVolverUsuarios: Button = findViewById(R.id.btnVolverUsuarios)
-        val txtMenuUsuarios: TextView = findViewById(R.id.txtMenuUsuarios)
         val btnRegistrarUsuario: Button = findViewById(R.id.btnRegistrarUsuario)
         val btnVerKevin: Button = findViewById(R.id.btnVerKevin)
         val btnBajaEric: Button = findViewById(R.id.btnBajaEric)
@@ -20,10 +19,6 @@ class UsuariosActivity : AppCompatActivity() {
 
         btnVolverUsuarios.setOnClickListener {
             finish()
-        }
-
-        txtMenuUsuarios.setOnClickListener {
-            Toast.makeText(this, "Opciones de usuario disponibles en futuras versiones", Toast.LENGTH_SHORT).show()
         }
 
         btnRegistrarUsuario.setOnClickListener {

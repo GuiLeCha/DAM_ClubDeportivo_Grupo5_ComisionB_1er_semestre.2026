@@ -17,8 +17,6 @@ class RegistrarSocioActivity : AppCompatActivity() {
         val dbHelper = SQLiteHelper(this)
 
         val btnVolverRegistrarSocio: Button = findViewById(R.id.btnVolverRegistrarSocio)
-        val txtMenuSimuladoSocio: TextView = findViewById(R.id.txtMenuSimuladoSocio)
-
         val edtNombreSocio: EditText = findViewById(R.id.edtNombreSocio)
         val edtApellidoSocio: EditText = findViewById(R.id.edtApellidoSocio)
         val edtDniSocio: EditText = findViewById(R.id.edtDniSocio)
@@ -32,10 +30,6 @@ class RegistrarSocioActivity : AppCompatActivity() {
 
         btnVolverRegistrarSocio.setOnClickListener {
             finish()
-        }
-
-        txtMenuSimuladoSocio.setOnClickListener {
-            Toast.makeText(this, "Menú de opciones disponible en futuras versiones", Toast.LENGTH_SHORT).show()
         }
 
         btnAgregarSocio.setOnClickListener {

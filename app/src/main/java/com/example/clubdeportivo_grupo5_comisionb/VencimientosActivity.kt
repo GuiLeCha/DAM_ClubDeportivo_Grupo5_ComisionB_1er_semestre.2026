@@ -25,7 +25,6 @@ class VencimientosActivity : AppCompatActivity() {
         dbHelper = SQLiteHelper(this)
 
         val btnVolverVencimientos: Button = findViewById(R.id.btnVolverVencimientos)
-        val txtMenuVencimientos: TextView = findViewById(R.id.txtMenuVencimientos)
 
         txtEstadoVencimientos = findViewById(R.id.txtEstadoVencimientos)
         recyclerVencimientos = findViewById(R.id.recyclerVencimientos)
@@ -36,9 +35,6 @@ class VencimientosActivity : AppCompatActivity() {
             finish()
         }
 
-        txtMenuVencimientos.setOnClickListener {
-            Toast.makeText(this, "Filtros de vencimiento disponibles en futuras versiones", Toast.LENGTH_SHORT).show()
-        }
     }
 
     override fun onResume() {

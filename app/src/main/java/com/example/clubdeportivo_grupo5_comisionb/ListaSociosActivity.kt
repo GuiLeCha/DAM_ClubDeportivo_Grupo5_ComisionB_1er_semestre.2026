@@ -28,7 +28,6 @@ class ListaSociosActivity : AppCompatActivity() {
         dbHelper = SQLiteHelper(this)
 
         val btnVolverListaSocios: Button = findViewById(R.id.btnVolverListaSocios)
-        val txtMenuListaSocios: TextView = findViewById(R.id.txtMenuListaSocios)
         val btnBuscarSocios: Button = findViewById(R.id.btnBuscarSocios)
         val btnLimpiarBusquedaSocios: Button = findViewById(R.id.btnLimpiarBusquedaSocios)
 
@@ -40,10 +39,6 @@ class ListaSociosActivity : AppCompatActivity() {
 
         btnVolverListaSocios.setOnClickListener {
             finish()
-        }
-
-        txtMenuListaSocios.setOnClickListener {
-            Toast.makeText(this, "Filtros avanzados disponibles en futuras versiones", Toast.LENGTH_SHORT).show()
         }
 
         btnBuscarSocios.setOnClickListener {

@@ -1,6 +1,5 @@
 package com.example.clubdeportivo_grupo5_comisionb
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -114,11 +113,7 @@ class RegistrarPagoActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (tipoCliente == "SOCIO") {
-                preguntarEntregaCarnet(concepto, monto, medioPago)
-            } else {
-                guardarPago(concepto, monto, medioPago, false)
-            }
+            guardarPago(concepto, monto, medioPago)
         }
     }
 
@@ -172,28 +167,10 @@ class RegistrarPagoActivity : AppCompatActivity() {
         }
     }
 
-    private fun preguntarEntregaCarnet(
-        concepto: String,
-        monto: Double,
-        medioPago: String
-    ) {
-        AlertDialog.Builder(this)
-            .setTitle("Carnet de socio")
-            .setMessage("¿Desea entregar carnet al socio junto con el pago?")
-            .setPositiveButton("Sí") { _, _ ->
-                guardarPago(concepto, monto, medioPago, true)
-            }
-            .setNegativeButton("No") { _, _ ->
-                guardarPago(concepto, monto, medioPago, false)
-            }
-            .show()
-    }
-
     private fun guardarPago(
         concepto: String,
         monto: Double,
-        medioPago: String,
-        carnetEntregado: Boolean
+        medioPago: String
     ) {
         val fechaPago = dbHelper.obtenerFechaHoy()
 
@@ -219,10 +196,13 @@ class RegistrarPagoActivity : AppCompatActivity() {
 
         if (resultado > 0) {
             if (tipoCliente == "SOCIO") {
+                val socioActual = dbHelper.obtenerSocioPorId(clienteId)
+                val carnetEntregadoActual = socioActual?.carnetEntregado ?: false
+
                 dbHelper.actualizarVencimientoSocioPorId(
                     clienteId,
                     fechaVencimiento,
-                    carnetEntregado
+                    carnetEntregadoActual
                 )
             }
 

@@ -27,7 +27,6 @@ class CobrosActivity : AppCompatActivity() {
         dbHelper = SQLiteHelper(this)
 
         val btnVolverCobros: Button = findViewById(R.id.btnVolverCobros)
-        val txtMenuCobros: TextView = findViewById(R.id.txtMenuCobros)
         val btnBuscarCobros: Button = findViewById(R.id.btnBuscarCobros)
         val btnLimpiarBusquedaCobros: Button = findViewById(R.id.btnLimpiarBusquedaCobros)
 
@@ -39,10 +38,6 @@ class CobrosActivity : AppCompatActivity() {
 
         btnVolverCobros.setOnClickListener {
             finish()
-        }
-
-        txtMenuCobros.setOnClickListener {
-            Toast.makeText(this, "Menú de opciones disponible en futuras versiones", Toast.LENGTH_SHORT).show()
         }
 
         btnBuscarCobros.setOnClickListener {
