@@ -112,6 +112,16 @@
             android:backgroundTint="@color/blanco"
             android:layout_marginTop="18dp" />
 
+        <Button
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="CERRAR SESIÓN"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:backgroundTint="@color/rojo_alerta"
+            android:layout_marginTop="28dp" />
+
     </LinearLayout>
 
 </ScrollView>

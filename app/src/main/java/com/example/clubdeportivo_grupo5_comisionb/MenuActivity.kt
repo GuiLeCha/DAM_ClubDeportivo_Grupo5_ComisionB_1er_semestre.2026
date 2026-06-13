@@ -20,6 +20,7 @@ class MenuActivity : AppCompatActivity() {
         val btnCobros: Button = findViewById(R.id.btnCobros)
         val btnVencimientos: Button = findViewById(R.id.btnVencimientos)
         val btnUsuarios: Button = findViewById(R.id.btnUsuarios)
+        val btnCerrarSesion: Button = findViewById(R.id.btnCerrarSesion)
 
         btnRegistrarCliente.setOnClickListener {
             mostrarDialogRegistro()
@@ -42,6 +43,10 @@ class MenuActivity : AppCompatActivity() {
         btnUsuarios.setOnClickListener {
             val intent = Intent(this, UsuariosActivity::class.java)
             startActivity(intent)
+        }
+
+        btnCerrarSesion.setOnClickListener {
+            confirmarCerrarSesion()
         }
     }
 
@@ -107,5 +112,18 @@ class MenuActivity : AppCompatActivity() {
         }
 
         dialog.show()
+    }
+
+    private fun confirmarCerrarSesion() {
+        AlertDialog.Builder(this)
+            .setTitle("Cerrar sesión")
+            .setMessage("¿Desea cerrar la sesión actual?")
+            .setPositiveButton("Sí") { _, _ ->
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
+            .setNegativeButton("No", null)
+            .show()
     }
 }
